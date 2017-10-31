@@ -1,0 +1,34 @@
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+}
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'java'
+apply plugin: 'signing'
+apply plugin: 'maven'
+
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:2.2.0'
+    compile 'com.android.tools.build:transform-api:1.5.0'
+    compile 'org.aspectj:aspectjtools:1.8.10'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+group = 'com.aspectj'
+version = '1.0.0'
+
+targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_7
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            // 本地仓库
+            repository(url: uri('./m2repository'))
+        }
+    }
+}
