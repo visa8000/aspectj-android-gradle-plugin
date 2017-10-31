@@ -2,15 +2,12 @@
 
 Aspectj Anrdoid 插件，支持Android工程进行面向切面编程
 
-目前插件link到jcenter还在审核中，可以先通过下面的仓库地址访问
+使用方法：
 
 ```java
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url "https://dl.bintray.com/alibaba/maven"
-        }
     }
     dependencies {
         classpath 'com.aspectj:AspectAndroid:1.0.1'
